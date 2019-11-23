@@ -21,13 +21,6 @@ public class LocationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
     }
-    public void whenPlayClicked(View view){
-        Intent my_intent = new Intent(getBaseContext(), MainActivity.class);
-        // my_intent.putExtra("text", "This is where you found the key! There is nothing else here.");
-        // my_intent.putExtra("button", "Go to the Century Tower!");
-        // my_intent.putExtra("image", 0);
-        startActivity(my_intent);
 
-    }
 
 }

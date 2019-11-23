@@ -13,34 +13,20 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.location.LocationListener;
-//import com.google.android.gms.location.LocationListener;
-//import com.google.android.gms.location.LocationRequest;
-//import com.google.android.gms.location.LocationServices;
-//import com.google.android.gms.common.ConnectionResult;
-//import com.google.android.gms.common.api.GoogleApiClient;
+
 
 
 
 public class EntryActivity extends AppCompatActivity implements LocationListener  {
 
-
-    //This integer serves as a "memory address" for storing and retrieving the user's permission status
-    //the naming does not actually matter
     final int REQUEST_ACCESS_FINE_LOCATION = 0;
-    boolean I_have_the_key = false;
     //boolean I_have_the_skull = false;
-    boolean I_have_found_map = false;
-    boolean I_have_met = false;
-    boolean I_have_found_chest_no_key = false;
-    boolean I_have_opened_chest = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_entry);
 
-
-        //this retrieves the user's permission status.
         boolean permissionAccessFineLocationApproved =
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                         == PackageManager.PERMISSION_GRANTED;
@@ -71,7 +57,10 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
                     REQUEST_ACCESS_FINE_LOCATION);
             //myLabel.setText("User has not provided permission yet.");
         }
+
+
     }
+
 
     @Override
     public void onRequestPermissionsResult (int requestCode, String[] permissions, int[] grantResults){
@@ -103,11 +92,9 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
         }
     }
 
+
     @Override
     public void onLocationChanged(Location location) {
-        //TextView label=findViewById(R.id.label);
-        //myLabel.setText("NEW DATA RECEIVED: "+location.getLongitude()+", "+location.getLatitude());
-
         /*if (Math.abs(-80.6649428 - location.getLongitude())<0.001 && Math.abs(28.1645444 - location.getLatitude())<0.001) {
             //Step 1 - go to Wickham Park
             //myLabel.setText("You are at the Century Tower.");
@@ -120,8 +107,7 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
                 my_intent.putExtra("image", R.drawable.archaeologist);
                 startActivity(my_intent);
                 I_have_met = true;
-            } else {
-                Intent my_intent = new Intent(getBaseContext(), Place1.class);
+            } else {Intent my_intent = new Intent(getBaseContext(), Place1.class);
                 my_intent.putExtra("text", "You arrived at Wickham Park. This is where you met the famous archaeologist.");
                 my_intent.putExtra("button", "There is nothing else for you here.");
                 my_intent.putExtra("image", R.drawable.archaeologist);
@@ -226,55 +212,8 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
                 //I_have_the_key = true;
             }
 
-        }
-
-        //if I am around Norman Gym
-        /*if(Math.abs(-82.3404267 - location.getLongitude())<0.001 && Math.abs(29.646736 - location.getLatitude())<0.001){
-            //Open Norman Gym Activity
-            //myLabel.setText("You are at the Norman Gym.");
-            Intent my_intent = new Intent(getBaseContext(), Place1.class);
-            my_intent.putExtra("text", "You found the key! Now you can unlock the chest!");
-            my_intent.putExtra("button", "Go back to Century Tower!");
-            my_intent.putExtra("image", 0);
-            startActivity(my_intent);
-            I_have_the_key = true;
-
-        } else if (Math.abs(-89.3454497 - location.getLongitude())<0.001 && Math.abs(29.6488011 - location.getLatitude())<0.001) {
-            //Open Century Tower Activity
-            //myLabel.setText("You are at the Century Tower.");
-            if{I_have_the_key){
-                Intent my_intent = new Intent(getBaseContext(), Place1.class);
-                my_intent.putExtra("text", "You opened the chest and found the Skull!");
-                my_intent.putExtra("button", "Go to O'Connell Center and put it back!");
-                my_intent.putExtra("image", 0);
-                startActivity(my_intent);
-                I_have_the_skull=true;
-            } else {
-                Intent my_intent = new Intent(getBaseContext(), Place1.class);
-                my_intent.putExtra("text", "The skull is locked in this treasure chest. Find the key!");
-                my_intent.putExtra("button", "Go to the Norman Gym!");
-                my_intent.putExtra("image", 0);
-                startActivity(my_intent);
-            }
-
-        } else if (Math.abs(-82.3533 - location.getLongitude())<0.001 && Math.abs(29.6494 - location.getLatitude())<0.001) {
-            //Open O'Connell Activity
-            //myLabel.setText("You are at O'Connell Center.");
-
-            if(I_have_the_skull){
-                Intent my_intent = new Intent(getBaseContext(), Place1.class);
-                my_intent.putExtra("text", "Congratulations! You did it!");
-                my_intent.putExtra("button", "Go gators!");
-                my_intent.putExtra("image", 0);
-                startActivity(my_intent);
-            }else {
-                Intent my_intent = new Intent(getBaseContext(), Place1.class);
-                my_intent.putExtra("text", "The famous Alligator Skull that has been kept for more than a century in the O'Connell Center has been stolen! Go find it!");
-                my_intent.putExtra("button", "Go to the century tower!");
-                my_intent.putExtra("image", 0);
-                startActivity(my_intent);
-            }
         }*/
+
     }
 
     @Override
@@ -289,11 +228,6 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
 
     @Override
     public void onProviderDisabled(String s) {
-
-    }
-
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
 }
