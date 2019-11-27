@@ -19,8 +19,36 @@ import android.location.LocationListener;
 
 public class EntryActivity extends AppCompatActivity implements LocationListener  {
 
+    //GPS variable
     final int REQUEST_ACCESS_FINE_LOCATION = 0;
-    //boolean I_have_the_skull = false;
+
+    //bools that check if you have arrived at a location before and won the game
+    //Location 1
+    boolean arrived_Harn = false;
+    boolean checked_Harn = false;
+    //Location 2
+    boolean arrived_Butterfly = false;
+    boolean checked_Butterfly = false;
+    //Location 3
+    boolean arrived_Paynes = false;
+    boolean checked_Paynes = false;
+    //Location 4
+    boolean arrived_Kanapaha = false;
+    boolean checked_Kanapaha = false;
+    //Location 5
+    boolean arrived_Millhopper = false;
+    boolean checked_Millhopper = false;
+    //Location 6
+    boolean arrived_Bat = false;
+    boolean checked_Bat = false;
+    //Location 7
+    boolean arrived_Lake = false;
+    boolean checked_Lake = false;
+    //Location 8
+    boolean arrived_Springs = false;
+    boolean checked_Springs = false;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +63,6 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
         if (permissionAccessFineLocationApproved) {
 
             //this block of code will run if the user has previously granted permissions.
-            //myLabel.setText("User has previously provided permission");
 
             //start location services
             startGPS();
@@ -55,7 +82,6 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
             ActivityCompat.requestPermissions(this, new String[]{
                             Manifest.permission.ACCESS_FINE_LOCATION},
                     REQUEST_ACCESS_FINE_LOCATION);
-            //myLabel.setText("User has not provided permission yet.");
         }
 
 
@@ -95,124 +121,116 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
 
     @Override
     public void onLocationChanged(Location location) {
-        /*if (Math.abs(-80.6649428 - location.getLongitude())<0.001 && Math.abs(28.1645444 - location.getLatitude())<0.001) {
-            //Step 1 - go to Wickham Park
-            //myLabel.setText("You are at the Century Tower.");
-            if (!I_have_met) {
-                label.setText("Hurry and go to Paradise Beach & Park!");
-                Intent my_intent = new Intent(getBaseContext(), Place1.class);
-                my_intent.putExtra("text", "You arrived at Wickham Park and met the famous archaeologist. He tells you that he believes the treasure map will be found at Paradise Beach & Park on Melbourne Beach. " +
-                        "Let's hurry and go!");
-                my_intent.putExtra("button", "Go to Paradise Beach & Park!");
-                my_intent.putExtra("image", R.drawable.archaeologist);
+
+        //Location 1 : Harn Museum
+        if (Math.abs(-82.3723359 - location.getLongitude())<0.001 && Math.abs(29.6371167 - location.getLatitude())<0.001) {
+            if (!checked_Harn) {
+                Intent my_intent = new Intent(getBaseContext(), MainActivity.class);
                 startActivity(my_intent);
-                I_have_met = true;
-            } else {Intent my_intent = new Intent(getBaseContext(), Place1.class);
-                my_intent.putExtra("text", "You arrived at Wickham Park. This is where you met the famous archaeologist.");
-                my_intent.putExtra("button", "There is nothing else for you here.");
-                my_intent.putExtra("image", R.drawable.archaeologist);
+                arrived_Harn = true;
+                checked_Harn = true;
+            } else {Intent my_intent = new Intent(getBaseContext(), Location1.class); // if checked already
                 startActivity(my_intent);
             }
-        } else if (Math.abs(-80.5760513 - location.getLongitude())<0.001 && Math.abs(28.1224397 - location.getLatitude())<0.001) {
-            //Step 2 -- go to Paradise Beach & Park
-            //myLabel.setText("You are at the Century Tower.");
-            if(I_have_found_map){
-                Intent my_intent = new Intent(getBaseContext(), Place1.class);
-                my_intent.putExtra("text", "You arrived at Paradise Beach & Park. This is where you found Captain Pegleg's treasure map.");
-                my_intent.putExtra("button", "There is nothing else for you here.");
-                my_intent.putExtra("image", R.drawable.map);
+        } else if (Math.abs(-82.3720088 - location.getLongitude())<0.001 && Math.abs(29.6359326 - location.getLatitude())<0.001) {
+
+            //Location 2 : Florida Museum of Natural History (Butterfly Garden)
+
+            if(!checked_Butterfly){
+                Intent my_intent = new Intent(getBaseContext(), MainActivity.class);
                 startActivity(my_intent);
-                //I_have_the_skull=true;
-            } else { //first time
-                label.setText("Hurry and go to Rotary Park!");
-                Intent my_intent = new Intent(getBaseContext(), Place1.class);
-                my_intent.putExtra("text", "You arrived at Paradise Beach & Park. You dug in the sand and found an old box with a treasure map inside! " +
-                        "There is a path on it that leads to an X mark on the river at Rotary Park.");
-                my_intent.putExtra("button", "Go to Rotary Park!");
-                my_intent.putExtra("image", R.drawable.map);
+                arrived_Butterfly = true;
+                checked_Butterfly = true;
+            } else { //been there before
+                Intent my_intent = new Intent(getBaseContext(), Location2.class);
                 startActivity(my_intent);
-                I_have_found_map = true;
             }
 
-        } else if (Math.abs(-80.6855503 - location.getLongitude())<0.001 && Math.abs(28.3262271 - location.getLatitude())<0.001) {
-            //Step 3 -- go to Rotary Park
-            //myLabel.setText("You are at the Century Tower.");
-            if(I_have_found_chest_no_key && !I_have_the_key){ //found chest and no key yet
-                Intent my_intent = new Intent(getBaseContext(), Place1.class);
-                my_intent.putExtra("text", "You arrived at Rotary Park. The chest still sits in the sand, but you don't have the key.");
-                my_intent.putExtra("button", "Go find the key!");
-                my_intent.putExtra("image", R.drawable.chest);
+        } else if (Math.abs(-82.4135394 - location.getLongitude())<0.001 && Math.abs(29.520249 - location.getLatitude())<0.001) {
+
+            // Location 3 : Paynes Prairie Preserve State Park
+
+            if(!checked_Paynes){ //first time arriving
+                Intent my_intent = new Intent(getBaseContext(), MainActivity.class);
                 startActivity(my_intent);
-                //I_have_the_skull=true;
-            } else if (I_have_the_key && !I_have_opened_chest) { //opening chest
-                label.setText("Take the treasure to the Liberty Bell Museum!");
-                Intent my_intent = new Intent(getBaseContext(), Place1.class);
-                my_intent.putExtra("text", "You arrived at Rotary Park with the key. You unlocked the treasure chest, and there are mountains of gold doubloons inside! " +
-                        "Let's take this valuable treasure to the Liberty Bell Museum.");
-                my_intent.putExtra("button", "Go to the Liberty Bell Museum!");
-                my_intent.putExtra("image", R.drawable.chest_open);
+                arrived_Paynes = true;
+                checked_Paynes = true;
+            } else { //been there before
+                Intent my_intent = new Intent(getBaseContext(), Location3.class);
                 startActivity(my_intent);
-                I_have_opened_chest = true;
-            } else if (I_have_opened_chest) { //after opening chest
-                //label.setText("Hurry and go to Melbourne Beach!");
-                label.setText("Take the treasure to the Liberty Bell Museum!");
-                Intent my_intent = new Intent(getBaseContext(), Place1.class);
-                my_intent.putExtra("text", "You arrived at Rotary Park. This is where you opened the treasure chest. Take the treasure to the Liberty Bell Museum.");
-                my_intent.putExtra("button", "Go to the Liberty Bell Museum!");
-                my_intent.putExtra("image", R.drawable.chest_open);
-                startActivity(my_intent);
-            }else { //first time finding chest
-                label.setText("Hurry and go to the Melbourne Square Mall!");
-                Intent my_intent = new Intent(getBaseContext(), Place1.class);
-                my_intent.putExtra("text", "You arrived at Rotary Park. You dug in the sand and found a chest! But it's locked! Where could the key be?! You notice another mark on the map, but it looks like it's at the Melbourne Square Mall." +
-                        " Could the key really be there?");
-                my_intent.putExtra("button", "Go to the Melbourne Square Mall!");
-                my_intent.putExtra("image", R.drawable.chest);
-                startActivity(my_intent);
-                I_have_found_chest_no_key = true;
             }
 
-        } else if (Math.abs(-80.6527446 - location.getLongitude())<0.001 && Math.abs(28.0812614 - location.getLatitude())<0.001) {
-            //Step 4 -- go to Mall
-            //myLabel.setText("You are at the Century Tower.");
-            if(I_have_the_key){ //found key
-                Intent my_intent = new Intent(getBaseContext(), Place1.class);
-                my_intent.putExtra("text", "You arrived at the Melbourne Square Mall. This is where you found the key.");
-                my_intent.putExtra("button", "There is nothing more for you here.");
-                my_intent.putExtra("image", R.drawable.key);
+        } else if (Math.abs(-80.6649428 - location.getLongitude())<0.001 && Math.abs(29.6126752 - location.getLatitude())<0.001) {
+
+            // Location 4 : Kanapaha Botanical Gardens
+
+            if(!checked_Kanapaha){ //first time arriving
+                Intent my_intent = new Intent(getBaseContext(), MainActivity.class);
                 startActivity(my_intent);
-                //I_have_the_skull=true;
-            } else { //first time finding key
-                label.setText("Hurry and go back to Rotary Park to unlock the chest!");
-                Intent my_intent = new Intent(getBaseContext(), Place1.class);
-                my_intent.putExtra("text", "You arrived at the Melbourne Square Mall garden area. There is a loose tile near the fountain. You investigate and find a key buried in the dirt beneath. This must be it!");
-                my_intent.putExtra("button", "Go back to Rotary Park to unlock the chest!");
-                my_intent.putExtra("image", R.drawable.key);
+                arrived_Kanapaha = true;
+                checked_Kanapaha = true;
+            } else { //been there before
+                Intent my_intent = new Intent(getBaseContext(), Location4.class);
                 startActivity(my_intent);
-                I_have_the_key = true;
             }
 
-        } else if (Math.abs(-80.6146943 - location.getLongitude())<0.001 && Math.abs(28.0840786 - location.getLatitude())<0.001) {
-            //Step 6 -- go to Museum
-            //myLabel.setText("You are at the Century Tower.");
-            if(!I_have_opened_chest){ //found key
-                Intent my_intent = new Intent(getBaseContext(), Place1.class);
-                my_intent.putExtra("text", "You arrived at the Liberty Bell Museum. You haven't found any treasure to donate yet.");
-                my_intent.putExtra("button", "Hurry and find the treasure!");
-                my_intent.putExtra("image", R.drawable.museum);
+        } else if (Math.abs(-82.3959489 - location.getLongitude())<0.001 && Math.abs(29.7043425 - location.getLatitude())<0.001) {
+
+            // Location 5 : Devil's Millhopper
+
+            if(!checked_Millhopper){ //first time arriving
+                Intent my_intent = new Intent(getBaseContext(), MainActivity.class);
                 startActivity(my_intent);
-                //I_have_the_skull=true;
-            } else { //first time finding key
-                label.setText("Thank you for playing!");
-                Intent my_intent = new Intent(getBaseContext(), Place1.class);
-                my_intent.putExtra("text", "You arrived at the Liberty Bell Museum and proudly presented the treasure. Everyone is so impressed, and the archaeologist is so thankful for your help. Congratulations!");
-                my_intent.putExtra("button", "Thank you for playing!");
-                my_intent.putExtra("image", R.drawable.ending);
+                arrived_Millhopper = true;
+                checked_Millhopper = true;
+            } else { //been there before
+                Intent my_intent = new Intent(getBaseContext(), Location5.class);
                 startActivity(my_intent);
-                //I_have_the_key = true;
             }
 
-        }*/
+        } else if (Math.abs(-82.3648575 - location.getLongitude())<0.001 && Math.abs(29.6440477 - location.getLatitude())<0.001) {
+
+            // Location 6 : UF Bat Houses
+
+            if(!checked_Bat){ //first time arriving
+                Intent my_intent = new Intent(getBaseContext(), MainActivity.class);
+                startActivity(my_intent);
+                arrived_Bat = true;
+                checked_Bat = true;
+            } else { //been there before
+                Intent my_intent = new Intent(getBaseContext(), Location6.class);
+                startActivity(my_intent);
+            }
+
+        } else if (Math.abs(-82.3069375 - location.getLongitude())<0.001 && Math.abs(29.5303567 - location.getLatitude())<0.001) {
+
+            // Location 7 : Lake Wauburg
+
+            if(!checked_Lake){ //first time arriving
+                Intent my_intent = new Intent(getBaseContext(), MainActivity.class);
+                startActivity(my_intent);
+                arrived_Lake = true;
+                checked_Lake = true;
+            } else { //been there before
+                Intent my_intent = new Intent(getBaseContext(), Location7.class);
+                startActivity(my_intent);
+            }
+
+        } else if (Math.abs(-82.7793 - location.getLongitude())<0.001 && Math.abs(29.9838423 - location.getLatitude())<0.001) {
+
+            // Location 8 : Ichetucknee Springs
+
+            if(!checked_Springs){ //first time arriving
+                Intent my_intent = new Intent(getBaseContext(), MainActivity.class);
+                startActivity(my_intent);
+                arrived_Springs = true;
+                checked_Springs = true;
+            } else { //been there before
+                Intent my_intent = new Intent(getBaseContext(), Location8.class);
+                startActivity(my_intent);
+            }
+
+        }
 
     }
 

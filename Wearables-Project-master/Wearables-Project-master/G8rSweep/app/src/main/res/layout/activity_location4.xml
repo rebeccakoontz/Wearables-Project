@@ -25,7 +25,7 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Butterfly Museum"
+            android:text="Kanahapa Botanical Gardens"
             android:textColor="#1F6105"
             android:textSize="30sp"
             android:textStyle="bold" />

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+	<Placemark>
+		<name>Harn Museum of Art</name>
+		<Point>
+			<coordinates>-82.3723359,29.6371167,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Florida Museum of Natural History (Butterfly Garden)</name>
+		<Point>
+			<coordinates>-82.3720088,29.6359326,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Paynes Prairie Preserve State Park</name>
+		<Point>
+			<coordinates>-82.4135394,29.520249,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Kanapaha Botanical Gardens</name>
+		<Point>
+			<coordinates>-80.6649428,29.6126752,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Devil's Millhopper</name>
+		<Point>
+			<coordinates>-82.3959489,29.7043425,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>University of Florida Bat Houses</name>
+		<Point>
+			<coordinates>-82.3648575,29.6440477,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Lake Warburg</name>
+		<Point>
+			<coordinates>-82.3069375,29.5303567,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Ichetucknee Springs</name>
+		<Point>
+			<coordinates>-82.7793,29.9838423,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Rotary Park</name>
+		<Point>
+			<coordinates>-80.6855503,28.3262271,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Melbourne Square Mall</name>
+		<Point>
+			<coordinates>-80.6527446,28.0812614,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Rotary Park</name>
+		<Point>
+			<coordinates>-80.6855503,28.3262271,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Liberty Bell Memorial Museum</name>
+		<Point>
+			<coordinates>-80.6146943,28.0840786,0</coordinates>
+		</Point>
+	</Placemark>
+</kml>

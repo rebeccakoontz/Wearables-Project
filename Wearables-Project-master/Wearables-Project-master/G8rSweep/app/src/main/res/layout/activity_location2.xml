@@ -7,4 +7,11 @@
     android:background="@drawable/backgroundtest"
     tools:context=".Location2">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Florida Museum of Natural History"
+        tools:layout_editor_absoluteX="96dp"
+        tools:layout_editor_absoluteY="63dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

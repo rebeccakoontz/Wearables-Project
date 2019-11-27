@@ -7,4 +7,11 @@
     android:background="@drawable/backgroundtest"
     tools:context=".Location5">
 
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Devil's Millhopper"
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="69dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

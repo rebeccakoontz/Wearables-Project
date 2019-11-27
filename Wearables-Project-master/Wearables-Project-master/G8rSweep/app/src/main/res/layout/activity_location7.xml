@@ -7,4 +7,11 @@
     android:background="@drawable/backgroundtest"
     tools:context=".Location7">
 
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lake Wauburg"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="70dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
