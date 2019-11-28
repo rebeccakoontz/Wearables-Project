@@ -24,31 +24,31 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
 
     //bools that check if you have arrived at a location before and won the game
     //Location 1
-    boolean arrived_Harn = false;
-    boolean checked_Harn = false;
+    static boolean arrived_Harn = false;
+    static boolean checked_Harn = false;
     //Location 2
-    boolean arrived_Butterfly = false;
-    boolean checked_Butterfly = false;
+    static boolean arrived_Butterfly = false;
+    static boolean checked_Butterfly = false;
     //Location 3
-    boolean arrived_Paynes = false;
-    boolean checked_Paynes = false;
+    static boolean arrived_Paynes = false;
+    static boolean checked_Paynes = false;
     //Location 4
-    boolean arrived_Kanapaha = false;
-    boolean checked_Kanapaha = false;
+    static boolean arrived_Kanapaha = false;
+    static boolean checked_Kanapaha = false;
     //Location 5
-    boolean arrived_Millhopper = false;
-    boolean checked_Millhopper = false;
+    static boolean arrived_Millhopper = false;
+    static boolean checked_Millhopper = false;
     //Location 6
-    boolean arrived_Bat = false;
-    boolean checked_Bat = false;
+    static boolean arrived_Bat = false;
+    static boolean checked_Bat = false;
     //Location 7
-    boolean arrived_Lake = false;
-    boolean checked_Lake = false;
+    static boolean arrived_Lake = false;
+    static boolean checked_Lake = false;
     //Location 8
-    boolean arrived_Springs = false;
-    boolean checked_Springs = false;
+    static boolean arrived_Springs = false;
+    static boolean checked_Springs = false;
 
-
+    static int locationsVisited = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,10 +125,11 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
         //Location 1 : Harn Museum
         if (Math.abs(-82.3723359 - location.getLongitude())<0.001 && Math.abs(29.6371167 - location.getLatitude())<0.001) {
             if (!checked_Harn) {
-                Intent my_intent = new Intent(getBaseContext(), MainActivity.class);
+                Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 startActivity(my_intent);
                 arrived_Harn = true;
-                checked_Harn = true;
+                locationsVisited += 1;
+                //checked_Harn = true;
             } else {Intent my_intent = new Intent(getBaseContext(), Location1.class); // if checked already
                 startActivity(my_intent);
             }
@@ -137,10 +138,11 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
             //Location 2 : Florida Museum of Natural History (Butterfly Garden)
 
             if(!checked_Butterfly){
-                Intent my_intent = new Intent(getBaseContext(), MainActivity.class);
+                Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 startActivity(my_intent);
                 arrived_Butterfly = true;
-                checked_Butterfly = true;
+                locationsVisited += 1;
+                //checked_Butterfly = true;
             } else { //been there before
                 Intent my_intent = new Intent(getBaseContext(), Location2.class);
                 startActivity(my_intent);
@@ -154,9 +156,10 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
                 Intent my_intent = new Intent(getBaseContext(), MainActivity.class);
                 startActivity(my_intent);
                 arrived_Paynes = true;
-                checked_Paynes = true;
+                locationsVisited += 1;
+                //checked_Paynes = true;
             } else { //been there before
-                Intent my_intent = new Intent(getBaseContext(), Location3.class);
+                Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 startActivity(my_intent);
             }
 
@@ -165,10 +168,11 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
             // Location 4 : Kanapaha Botanical Gardens
 
             if(!checked_Kanapaha){ //first time arriving
-                Intent my_intent = new Intent(getBaseContext(), MainActivity.class);
+                Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 startActivity(my_intent);
                 arrived_Kanapaha = true;
-                checked_Kanapaha = true;
+                locationsVisited += 1;
+                //checked_Kanapaha = true;
             } else { //been there before
                 Intent my_intent = new Intent(getBaseContext(), Location4.class);
                 startActivity(my_intent);
@@ -179,10 +183,11 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
             // Location 5 : Devil's Millhopper
 
             if(!checked_Millhopper){ //first time arriving
-                Intent my_intent = new Intent(getBaseContext(), MainActivity.class);
+                Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 startActivity(my_intent);
                 arrived_Millhopper = true;
-                checked_Millhopper = true;
+                locationsVisited += 1;
+                //checked_Millhopper = true;
             } else { //been there before
                 Intent my_intent = new Intent(getBaseContext(), Location5.class);
                 startActivity(my_intent);
@@ -193,10 +198,11 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
             // Location 6 : UF Bat Houses
 
             if(!checked_Bat){ //first time arriving
-                Intent my_intent = new Intent(getBaseContext(), MainActivity.class);
+                Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 startActivity(my_intent);
                 arrived_Bat = true;
-                checked_Bat = true;
+                locationsVisited += 1;
+                //checked_Bat = true;
             } else { //been there before
                 Intent my_intent = new Intent(getBaseContext(), Location6.class);
                 startActivity(my_intent);
@@ -207,10 +213,11 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
             // Location 7 : Lake Wauburg
 
             if(!checked_Lake){ //first time arriving
-                Intent my_intent = new Intent(getBaseContext(), MainActivity.class);
+                Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 startActivity(my_intent);
                 arrived_Lake = true;
-                checked_Lake = true;
+                locationsVisited += 1;
+                //checked_Lake = true;
             } else { //been there before
                 Intent my_intent = new Intent(getBaseContext(), Location7.class);
                 startActivity(my_intent);
@@ -221,10 +228,11 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
             // Location 8 : Ichetucknee Springs
 
             if(!checked_Springs){ //first time arriving
-                Intent my_intent = new Intent(getBaseContext(), MainActivity.class);
+                Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 startActivity(my_intent);
                 arrived_Springs = true;
-                checked_Springs = true;
+                locationsVisited += 1;
+                //checked_Springs = true;
             } else { //been there before
                 Intent my_intent = new Intent(getBaseContext(), Location8.class);
                 startActivity(my_intent);

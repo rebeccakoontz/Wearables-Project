@@ -15,6 +15,7 @@
         android:layout_marginTop="165dp"
         android:layout_marginEnd="265dp"
         android:layout_marginBottom="518dp"
+        android:onClick="whenPlayClicked"
         android:text="Play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
