@@ -61,5 +61,19 @@ public class LocationActivity extends AppCompatActivity {
         }, TIME_OUT);
     }
 
+    @Override
+    public void onBackPressed() {
+        Counter.locationsVisited -= 1;
+        EntryActivity.arrived_Harn = false;
+        EntryActivity.arrived_Butterfly = false;
+        EntryActivity.arrived_Paynes = false;
+        EntryActivity.arrived_Kanapaha = false;
+        EntryActivity.arrived_Millhopper = false;
+        EntryActivity.arrived_Bat = false;
+        EntryActivity.arrived_Lake = false;
+        EntryActivity.arrived_Springs = false;
+        Intent my_intent = new Intent(getBaseContext(), EntryActivity.class);
+        startActivity(my_intent);
+    }
 
 }

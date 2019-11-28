@@ -141,21 +141,21 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
     //IMPORTANT: This will be called many times per second, so do not include time-consuming commands.
     void draw(Canvas c){
 
-        if (EntryActivity.locationsVisited==1){
+        if (Counter.locationsVisited==1){
             scoreGoal = 10;
-        } else if (EntryActivity.locationsVisited==2){
+        } else if (Counter.locationsVisited==2){
             scoreGoal = 15;
-        } else if(EntryActivity.locationsVisited==3) {
+        } else if(Counter.locationsVisited==3) {
             scoreGoal = 18;
-        } else if(EntryActivity.locationsVisited==4) {
+        } else if(Counter.locationsVisited==4) {
             scoreGoal = 20;
-        } else if(EntryActivity.locationsVisited==5) {
+        } else if(Counter.locationsVisited==5) {
             scoreGoal = 22;
-        } else if(EntryActivity.locationsVisited==6) {
+        } else if(Counter.locationsVisited==6) {
             scoreGoal = 25;
-        } else if(EntryActivity.locationsVisited==7) {
+        } else if(Counter.locationsVisited==7) {
             scoreGoal = 28;
-        } else if(EntryActivity.locationsVisited==8) {
+        } else if(Counter.locationsVisited==8) {
             scoreGoal = 30;
         }
 
@@ -282,7 +282,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
             c.drawText("You Won The Game!",200, 500, textPaint);
         }
 
-        c.drawText("Score: "+score+ "/10",300,100, textPaint);
+        c.drawText("Score: "+score+ "/"+scoreGoal,300,100, textPaint);
 
     }
 
@@ -321,17 +321,17 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
         thorn_y+=15;
 
         //Arte hits target-----
-        if(Math.abs(arte_x-yFlower_x)<(arte_size+yFlower_size-200)*0.4&&Math.abs(arte_y-yFlower_y)<(arte_size+yFlower_size-200)*0.4){
+        if(Math.abs(arte_x-yFlower_x)<(arte_size+yFlower_size)*0.4&&Math.abs(arte_y-yFlower_y)<(arte_size+yFlower_size-200)*0.4){
             score+=1;
             yFlower_y=-yFlower_size;
             yFlower_x=(float)Math.random()*(my_surface.getWidth()-yFlower_size);
         }
-        if(Math.abs(arte_x-pFlower_x)<(arte_size+pFlower_size-200)*0.4&&Math.abs(arte_y-pFlower_y)<(arte_size+pFlower_size-200)*0.4){
+        if(Math.abs(arte_x-pFlower_x)<(arte_size+pFlower_size)*0.4&&Math.abs(arte_y-pFlower_y)<(arte_size+pFlower_size-200)*0.4){
             score+=2;
             pFlower_y=-pFlower_size;
             pFlower_x=(float)Math.random()*(my_surface.getWidth()-pFlower_size);
         }
-        if(Math.abs(arte_x-thorn_x)<(arte_size+thorn_size-200)*0.4&&Math.abs(arte_y-thorn_y)<(arte_size+thorn_size-200)*0.4){
+        if(Math.abs(arte_x-thorn_x)<(arte_size+thorn_size)*0.4&&Math.abs(arte_y-thorn_y)<(arte_size+thorn_size-200)*0.4){
             score-=1;
             thorn_y=-thorn_size;
             thorn_x=(float)Math.random()*(my_surface.getWidth()-thorn_size);
@@ -395,9 +395,14 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
         super.onDestroy();
     }
 
-
     @Override
     public void onClick(View view) {
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
+        startActivity(my_intent);
     }
 }

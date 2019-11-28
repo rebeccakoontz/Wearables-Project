@@ -9,38 +9,48 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Location8"
+        <activity
+            android:name=".Location8"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".Location7"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Location7"
             android:configChanges="orientation"
-            android:screenOrientation="portrait" ></activity>
-        <activity android:name=".Location6"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Location6"
             android:configChanges="orientation"
-            android:screenOrientation="portrait" ></activity>
-        <activity android:name=".Location5"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Location5"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".Location4"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Location4"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".Location3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Location3"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".Location2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Location2"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".Location1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Location1"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".LocationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LocationActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"></activity>
-
-        <activity android:name=".EntryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EntryActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -51,6 +61,6 @@
         </activity>
     </application>
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 </manifest>
