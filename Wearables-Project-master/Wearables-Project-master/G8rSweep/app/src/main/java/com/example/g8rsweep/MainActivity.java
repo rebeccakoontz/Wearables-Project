@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
     Bitmap yFlower_image=null;
     Bitmap pFlower_image=null;
     Bitmap thorn_image=null;
-    //Bitmap plane_hp_image=null;
     boolean bitmaps_loaded=false;
 
     long timestamp=0;
@@ -143,6 +142,8 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
     //Draw your scene here.
     //IMPORTANT: This will be called many times per second, so do not include time-consuming commands.
     void draw(Canvas c){
+
+        SurfaceView my_surface=findViewById(R.id.my_surface);
 
         if (Counter.locationsVisited==1){
             scoreGoal = 10;
@@ -279,7 +280,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
 
         //Draw Arte
 
-        c.drawBitmap(arte_image, arte_x, arte_y, null);
+        c.drawBitmap(arte_image, arte_x, my_surface.getHeight()-400, null);
 
         if (win){
             c.drawText("You Won The Game!",200, 500, textPaint);
@@ -324,17 +325,17 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
         thorn_y+=15;
 
         //Arte hits target-----
-        if(Math.abs(arte_x-yFlower_x)<(arte_size+yFlower_size)*0.4&&Math.abs(arte_y-yFlower_y)<(arte_size+yFlower_size-200)*0.4){
+        if(Math.abs(arte_x-yFlower_x)<(arte_size+yFlower_size-200)*0.4&&Math.abs(arte_y-yFlower_y)<(arte_size+yFlower_size-200)*0.4){
             score+=1;
             yFlower_y=-yFlower_size;
             yFlower_x=(float)Math.random()*(my_surface.getWidth()-yFlower_size);
         }
-        if(Math.abs(arte_x-pFlower_x)<(arte_size+pFlower_size)*0.4&&Math.abs(arte_y-pFlower_y)<(arte_size+pFlower_size-200)*0.4){
+        if(Math.abs(arte_x-pFlower_x)<(arte_size+pFlower_size-200)*0.4&&Math.abs(arte_y-pFlower_y)<(arte_size+pFlower_size-200)*0.4){
             score+=2;
             pFlower_y=-pFlower_size;
             pFlower_x=(float)Math.random()*(my_surface.getWidth()-pFlower_size);
         }
-        if(Math.abs(arte_x-thorn_x)<(arte_size+thorn_size)*0.4&&Math.abs(arte_y-thorn_y)<(arte_size+thorn_size-200)*0.4){
+        if(Math.abs(arte_x-thorn_x)<(arte_size+thorn_size-200)*0.4&&Math.abs(arte_y-thorn_y)<(arte_size+thorn_size-200)*0.4){
             score-=1;
             thorn_y=-thorn_size;
             thorn_x=(float)Math.random()*(my_surface.getWidth()-thorn_size);
