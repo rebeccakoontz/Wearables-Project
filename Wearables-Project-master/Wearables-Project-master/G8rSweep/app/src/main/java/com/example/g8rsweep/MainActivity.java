@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
                     @Override
                     public void run() {
                         Intent i = new Intent(MainActivity.this, Location1.class);
-                        EntryActivity.checked_Harn = true;
+                        Counter.checked_Harn = true;
                         EntryActivity.arrived_Harn = false;
                         startActivity(i);
                         finish();
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
                     @Override
                     public void run() {
                         Intent i = new Intent(MainActivity.this, Location2.class);
-                        EntryActivity.checked_Butterfly = true;
+                        Counter.checked_Butterfly = true;
                         EntryActivity.arrived_Butterfly = false;
                         startActivity(i);
                         finish();
@@ -189,7 +189,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
                     @Override
                     public void run() {
                         Intent i = new Intent(MainActivity.this, Location3.class);
-                        EntryActivity.checked_Paynes = true;
+                        Counter.checked_Paynes = true;
                         EntryActivity.arrived_Paynes = false;
                         startActivity(i);
                         finish();
@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
                     @Override
                     public void run() {
                         Intent i = new Intent(MainActivity.this, Location4.class);
-                        EntryActivity.checked_Kanapaha = true;
+                        Counter.checked_Kanapaha = true;
                         EntryActivity.arrived_Kanapaha = false;
                         startActivity(i);
                         finish();
@@ -211,7 +211,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
                     @Override
                     public void run() {
                         Intent i = new Intent(MainActivity.this, Location5.class);
-                        EntryActivity.checked_Millhopper = true;
+                        Counter.checked_Millhopper = true;
                         EntryActivity.arrived_Millhopper = false;
                         startActivity(i);
                         finish();
@@ -222,7 +222,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
                     @Override
                     public void run() {
                         Intent i = new Intent(MainActivity.this, Location6.class);
-                        EntryActivity.checked_Bat = true;
+                        Counter.checked_Bat = true;
                         EntryActivity.arrived_Bat = false;
                         startActivity(i);
                         finish();
@@ -233,7 +233,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
                     @Override
                     public void run() {
                         Intent i = new Intent(MainActivity.this, Location7.class);
-                        EntryActivity.checked_Lake = true;
+                        Counter.checked_Lake = true;
                         EntryActivity.arrived_Lake = false;
                         startActivity(i);
                         finish();
@@ -244,7 +244,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
                     @Override
                     public void run() {
                         Intent i = new Intent(MainActivity.this, Location8.class);
-                        EntryActivity.checked_Springs = true;
+                        Counter.checked_Springs = true;
                         EntryActivity.arrived_Springs = false;
                         startActivity(i);
                         finish();

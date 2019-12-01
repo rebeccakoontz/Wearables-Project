@@ -3,6 +3,7 @@ package com.example.g8rsweep;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.Manifest;
 import android.content.Context;
@@ -13,6 +14,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Debug;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.location.LocationListener;
 
@@ -27,28 +29,28 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
     //bools that check if you have arrived at a location before and won the game
     //Location 1
     static boolean arrived_Harn = false;
-    static boolean checked_Harn = false;
+    //static boolean checked_Harn = false;
     //Location 2
     static boolean arrived_Butterfly = false;
-    static boolean checked_Butterfly = false;
+    //static boolean checked_Butterfly = false;
     //Location 3
     static boolean arrived_Paynes = false;
-    static boolean checked_Paynes = false;
+    //static boolean checked_Paynes = false;
     //Location 4
     static boolean arrived_Kanapaha = false;
-    static boolean checked_Kanapaha = false;
+    //static boolean checked_Kanapaha = false;
     //Location 5
     static boolean arrived_Millhopper = false;
-    static boolean checked_Millhopper = false;
+    //static boolean checked_Millhopper = false;
     //Location 6
     static boolean arrived_Bat = false;
-    static boolean checked_Bat = false;
+    //static boolean checked_Bat = false;
     //Location 7
     static boolean arrived_Lake = false;
-    static boolean checked_Lake = false;
+    //static boolean checked_Lake = false;
     //Location 8
     static boolean arrived_Springs = false;
-    static boolean checked_Springs = false;
+    //static boolean checked_Springs = false;
 
     //static int locationsVisited;
 
@@ -86,6 +88,9 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
                     REQUEST_ACCESS_FINE_LOCATION);
         }
 
+        //check if you checked off a location or won
+        Check();
+        Win();
 
     }
 
@@ -126,7 +131,7 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
 
         //Location 1 : Harn Museum
         if (Math.abs(-82.3723359 - location.getLongitude())<0.001 && Math.abs(29.6371167 - location.getLatitude())<0.001) {
-            if (!checked_Harn && !arrived_Harn) {
+            if (!Counter.checked_Harn && !arrived_Harn) {
                 Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 arrived_Harn = true;
                 Counter.locationsVisited += 1;
@@ -139,7 +144,7 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
 
             //Location 2 : Florida Museum of Natural History (Butterfly Garden)
 
-            if(!checked_Butterfly && !arrived_Butterfly){
+            if(!Counter.checked_Butterfly && !arrived_Butterfly){
                 Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 arrived_Butterfly = true;
                 Counter.locationsVisited += 1;
@@ -154,7 +159,7 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
 
             // Location 3 : Paynes Prairie Preserve State Park
 
-            if(!checked_Paynes && !arrived_Paynes){ //first time arriving
+            if(!Counter.checked_Paynes && !arrived_Paynes){ //first time arriving
                 Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 arrived_Paynes = true;
                 Counter.locationsVisited += 1;
@@ -169,7 +174,7 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
 
             // Location 4 : Kanapaha Botanical Gardens
 
-            if(!checked_Kanapaha && !arrived_Kanapaha){ //first time arriving
+            if(!Counter.checked_Kanapaha && !arrived_Kanapaha){ //first time arriving
                 Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 arrived_Kanapaha = true;
                 Counter.locationsVisited += 1;
@@ -184,7 +189,7 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
 
             // Location 5 : Devil's Millhopper
 
-            if(!checked_Millhopper && !arrived_Millhopper){ //first time arriving
+            if(!Counter.checked_Millhopper && !arrived_Millhopper){ //first time arriving
                 Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 arrived_Millhopper = true;
                 Counter.locationsVisited += 1;
@@ -199,7 +204,7 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
 
             // Location 6 : UF Bat Houses
 
-            if(!checked_Bat && !arrived_Bat){ //first time arriving
+            if(!Counter.checked_Bat && !arrived_Bat){ //first time arriving
                 Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 arrived_Bat = true;
                 Counter.locationsVisited += 1;
@@ -214,7 +219,7 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
 
             // Location 7 : Lake Wauburg
 
-            if(!checked_Lake && !arrived_Lake){ //first time arriving
+            if(!Counter.checked_Lake && !arrived_Lake){ //first time arriving
                 Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 arrived_Lake = true;
                 Counter.locationsVisited += 1;
@@ -229,7 +234,7 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
 
             // Location 8 : Ichetucknee Springs
 
-            if(!checked_Springs && !arrived_Springs){ //first time arriving
+            if(!Counter.checked_Springs && !arrived_Springs){ //first time arriving
                 Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 arrived_Springs = true;
                 Counter.locationsVisited += 1;
@@ -257,5 +262,65 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
     @Override
     public void onProviderDisabled(String s) {
 
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        //check if you checked off a location or won
+        Check();
+        Win();
+
+    }
+
+    public void Check(){
+        //check off the location when coming back to this activity
+        if (Counter.checked_Harn){
+            TextView text_field= findViewById(R.id.harnText);
+            text_field.setPaintFlags(text_field.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        }
+        if (Counter.checked_Butterfly){
+            TextView text_field= findViewById(R.id.butterflyText);
+            text_field.setPaintFlags(text_field.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        }
+        if (Counter.checked_Paynes){
+            TextView text_field= findViewById(R.id.paynesText);
+            text_field.setPaintFlags(text_field.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        }
+        if (Counter.checked_Kanapaha){
+            TextView text_field= findViewById(R.id.kanapahaText);
+            text_field.setPaintFlags(text_field.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        }
+        if (Counter.checked_Millhopper){
+            TextView text_field= findViewById(R.id.millhopperText);
+            text_field.setPaintFlags(text_field.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        }
+        if (Counter.checked_Bat){
+            TextView text_field= findViewById(R.id.batText);
+            text_field.setPaintFlags(text_field.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        }
+        if (Counter.checked_Butterfly){
+            TextView text_field= findViewById(R.id.butterflyText);
+            text_field.setPaintFlags(text_field.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        }
+        if (Counter.checked_Lake){
+            TextView text_field= findViewById(R.id.lakeText);
+            text_field.setPaintFlags(text_field.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        }
+        if (Counter.checked_Springs){
+            TextView text_field= findViewById(R.id.springsText);
+            text_field.setPaintFlags(text_field.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        }
+    }
+
+    // check if you win
+    public void Win(){
+        if (Counter.checked_Harn && Counter.checked_Butterfly && Counter.checked_Paynes && Counter.checked_Kanapaha && Counter.checked_Millhopper && Counter.checked_Bat && Counter.checked_Lake && Counter.checked_Springs){
+            TextView text_field= findViewById(R.id.congratsText);
+
+            text_field.setText("Wow! You're an official Gator Sweep Master!");
+
+        }
     }
 }
