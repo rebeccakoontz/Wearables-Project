@@ -17,6 +17,7 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.location.LocationListener;
+import android.media.MediaPlayer;
 
 
 
@@ -91,6 +92,9 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
         //check if you checked off a location or won
         Check();
         Win();
+
+        MediaPlayer sandcastle = MediaPlayer.create(EntryActivity.this, R.raw.sandcastle);
+        sandcastle.start();
 
     }
 

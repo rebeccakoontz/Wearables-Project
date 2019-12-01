@@ -2,6 +2,7 @@ package com.example.g8rsweep;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
@@ -97,6 +98,8 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
         }
 
 
+        MediaPlayer sandcastle = MediaPlayer.create(MainActivity.this, R.raw.sandcastle);
+        sandcastle.start();
     }
 
     @Override
