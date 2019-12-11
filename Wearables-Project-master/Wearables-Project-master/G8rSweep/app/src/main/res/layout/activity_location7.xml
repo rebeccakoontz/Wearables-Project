@@ -52,19 +52,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Lake Wauburg is located just south of Paynes Prairie in central Alachua County, Florida, United States. The lake is in the Ocala Uplift District, situated between the forested highlands of the Fairfield Hills area and the surrounding dissolution valleys of the Alachua Prairies."
+            android:text="Lake Wauburg is a lake that is popular among the University of Florida students. There are many recreational sports and activities that take place here. Some of these activities include boating, wall climbing, volleyball, and many more. "
             android:textColor="#1F6105"
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="35sp" />
-
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/MainMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Main Menu"

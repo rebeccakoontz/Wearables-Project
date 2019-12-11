@@ -38,33 +38,17 @@
             app:srcCompat="@drawable/ichetuckneev1" />
 
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Temporary Text"
-            android:textColor="#1F6105"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <TextView
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Although well-known for its warm weather tubing, the 2,669-acre Ichetucknee Springs State Park is also a wildlife haven, where beaver, otter, gar, softshell turtle, wild turkey, wood duck and limpkin all find a home. The main draw is the park’s eight major crystalline springs that join together to create the six-mile Ichetucknee River."
+            android:text="Ichetucknee Springs State Park consists of eight springs within the six mile Ichetucknee River. This park is most commonly used for tubing, but also consists of a popular small swimming area. While tubing, it is common to spot some of the natural wildlife like the beaver, otter, and softshell turtle."
             android:textColor="#1F6105"
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="35sp" />
-
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/MainMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Main Menu"

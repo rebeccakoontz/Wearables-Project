@@ -37,33 +37,17 @@
             app:srcCompat="@drawable/paynesprairiev1" />
 
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Temporary Text"
-            android:textColor="#1F6105"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <TextView
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Paynes Prairie Preserve State Park is a Florida State Park, encompassing a 21,000-acre savanna in Micanopy, Florida, south of Gainesville. It is also a U.S. National Natural Landmark. It is crossed by both I-75 and U.S. 441. It is in the center of the Paynes Prairie Basin."
+            android:text="Paynes Prairie Preserve State Park is a nature preserve in south Gainesville. This nature preserve is home to herds of wild horses and bison, as well as almost 300 species of birs and other native floridian animals. This park consists of eight trails where visitors can observe wildlife and see foliage in its natural habitat. "
             android:textColor="#1F6105"
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="35sp" />
-
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/MainMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Main Menu"
