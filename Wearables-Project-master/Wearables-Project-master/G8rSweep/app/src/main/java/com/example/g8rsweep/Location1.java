@@ -21,8 +21,8 @@ public class Location1 extends AppCompatActivity {
         sandcastle.start();
     }
 
-    public void onClickMainMenu(View view) {
-        Intent my_intent = new Intent(getBaseContext(), EntryActivity.class);
-        startActivity(my_intent);
-    }
+   // public void onClickMainMenu(View view) {
+   //     Intent my_intent = new Intent(getBaseContext(), EntryActivity.class);
+   //     startActivity(my_intent);
+   // }
 }
