@@ -214,10 +214,10 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
                 Counter.locationsVisited += 1;
                 startActivity(my_intent);
                 //checked_Bat = true;
-            } else { //been there before
+            } /*else { //been there before
                 Intent my_intent = new Intent(getBaseContext(), Location6.class);
                 startActivity(my_intent);
-            }
+            }*/
 
         } else if (Math.abs(-82.3069375 - location.getLongitude())<0.001 && Math.abs(29.5303567 - location.getLatitude())<0.001) {
 

@@ -21,14 +21,8 @@ public class Location1 extends AppCompatActivity {
         sandcastle.start();
     }
 
-    public void onClickMainMenu(View view){
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent i = new Intent(Location1.this, EntryActivity.class);
-                startActivity(i);
-                finish();
-            }
-        }, TIME_OUT);
+    public void onClickMainMenu(View view) {
+        Intent my_intent = new Intent(getBaseContext(), EntryActivity.class);
+        startActivity(my_intent);
     }
 }

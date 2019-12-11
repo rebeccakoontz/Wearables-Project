@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Paynes Prairie Preserve State Park is a nature preserve in south Gainesville. This nature preserve is home to herds of wild horses and bison, as well as almost 300 species of birs and other native floridian animals. This park consists of eight trails where visitors can observe wildlife and see foliage in its natural habitat. "
+            android:text="Paynes Prairie Preserve State Park is a nature preserve in south Gainesville. This nature preserve is home to herds of wild horses and bison, as well as almost 300 species of birds and other native floridian animals. This park consists of eight trails where visitors can observe wildlife and see foliage in its natural habitat. "
             android:textColor="#1F6105"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -50,6 +50,7 @@
             android:id="@+id/MainMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onClickMainMenu"
             android:text="Main Menu"
             android:textStyle="bold" />
 

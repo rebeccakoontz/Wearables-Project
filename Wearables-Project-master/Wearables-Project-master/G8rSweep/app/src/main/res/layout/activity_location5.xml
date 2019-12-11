@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Devil's Millhopper Geological State Park is a state park located in Gainesville, Florida. It consists of a miniature rain forest with streams falling into a natural limestone sinkhole. This sinkhole attracts many visitors as it is over 100 fet deep and exposes the many rock layers that develops over long periods of time."
+            android:text="Devil's Millhopper Geological State Park is a state park located in Gainesville, Florida. It consists of a miniature rain forest with streams falling into a natural limestone sinkhole. This sinkhole attracts many visitors as it is over 100 feet deep and exposes the many rock layers that develop over long periods of time."
             android:textColor="#1F6105"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -51,6 +51,7 @@
             android:id="@+id/MainMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onClickMainMenu"
             android:text="Main Menu"
             android:textStyle="bold" />
 

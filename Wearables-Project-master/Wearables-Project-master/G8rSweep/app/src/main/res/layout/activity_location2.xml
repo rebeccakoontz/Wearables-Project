@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="The Butterfly Rainforest is an exhibit at the Florida Museum of Natural History. In this exhibit, there are hundreds of butterflies on display, along with other native floridian animals. Visitors can see the live butterflies and floral landscapes Monday through Sunday at 2 pm and 3 pm."
+            android:text="The Butterfly Rainforest is an exhibit at the Florida Museum of Natural History. In this exhibit, there are hundreds of butterflies on display, along with other native Floridian animals. Visitors can see the live butterflies and floral landscapes Monday through Sunday at 2 pm and 3 pm."
             android:textColor="#1F6105"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -59,6 +59,7 @@
             android:id="@+id/MainMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onClickMainMenu"
             android:text="Main Menu"
             android:textStyle="bold" />
 
