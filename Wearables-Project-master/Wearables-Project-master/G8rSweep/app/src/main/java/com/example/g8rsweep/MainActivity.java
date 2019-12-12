@@ -79,6 +79,8 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
     //Boolean lose = false;
     Boolean win = false;
 
+    MediaPlayer sandcastle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
         }
 
 
-        MediaPlayer sandcastle = MediaPlayer.create(MainActivity.this, R.raw.sandcastle);
+        sandcastle = MediaPlayer.create(MainActivity.this, R.raw.sandcastle);
         sandcastle.start();
     }
 
@@ -406,7 +408,8 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
 
     @Override
     public void onBackPressed() {
-        Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
-        startActivity(my_intent);
+        /*Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
+        sandcastle.stop();
+        startActivity(my_intent);*/
     }
 }

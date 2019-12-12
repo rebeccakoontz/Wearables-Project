@@ -53,7 +53,11 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
     static boolean arrived_Springs = false;
     //static boolean checked_Springs = false;
 
+    static boolean inActivity = false;
+
     //static int locationsVisited;
+
+    MediaPlayer sandcastle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +97,7 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
         Check();
         Win();
 
-        MediaPlayer sandcastle = MediaPlayer.create(EntryActivity.this, R.raw.sandcastle);
+        sandcastle = MediaPlayer.create(EntryActivity.this, R.raw.sandcastle);
         sandcastle.start();
 
     }
@@ -133,15 +137,21 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
     @Override
     public void onLocationChanged(Location location) {
 
+        if(!inActivity){
+
         //Location 1 : Harn Museum
         if (Math.abs(-82.3723359 - location.getLongitude())<0.001 && Math.abs(29.6371167 - location.getLatitude())<0.001) {
             if (!Counter.checked_Harn && !arrived_Harn) {
                 Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 arrived_Harn = true;
+                inActivity = true;
                 Counter.locationsVisited += 1;
+                sandcastle.stop();
                 startActivity(my_intent);
                 //checked_Harn = true;
-            } else {Intent my_intent = new Intent(getBaseContext(), Location1.class); // if checked already
+            } else if (Counter.checked_Harn) {Intent my_intent = new Intent(getBaseContext(), Location1.class); // if checked already
+                //sandcastle.stop();
+                inActivity = true;
                 startActivity(my_intent);
             }
         } else if (Math.abs(-82.3720088 - location.getLongitude())<0.001 && Math.abs(29.6359326 - location.getLatitude())<0.001) {
@@ -151,11 +161,15 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
             if(!Counter.checked_Butterfly && !arrived_Butterfly){
                 Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 arrived_Butterfly = true;
+                inActivity = true;
                 Counter.locationsVisited += 1;
+                sandcastle.stop();
                 startActivity(my_intent);
                 //checked_Butterfly = true;
-            } else { //been there before
+            } else if(Counter.checked_Butterfly) { //been there before
                 Intent my_intent = new Intent(getBaseContext(), Location2.class);
+                //sandcastle.stop();
+                inActivity = true;
                 startActivity(my_intent);
             }
 
@@ -166,11 +180,15 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
             if(!Counter.checked_Paynes && !arrived_Paynes){ //first time arriving
                 Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 arrived_Paynes = true;
+                inActivity = true;
                 Counter.locationsVisited += 1;
+                sandcastle.stop();
                 startActivity(my_intent);
                 //checked_Paynes = true;
-            } else { //been there before
+            } else if (Counter.checked_Paynes) { //been there before
                 Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
+                //sandcastle.stop();
+                inActivity = true;
                 startActivity(my_intent);
             }
 
@@ -182,10 +200,14 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
                 Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 arrived_Kanapaha = true;
                 Counter.locationsVisited += 1;
+                sandcastle.stop();
+                inActivity = true;
                 startActivity(my_intent);
                 //checked_Kanapaha = true;
-            } else { //been there before
+            } else if (Counter.checked_Kanapaha) { //been there before
                 Intent my_intent = new Intent(getBaseContext(), Location4.class);
+                //sandcastle.stop();
+                inActivity = true;
                 startActivity(my_intent);
             }
 
@@ -197,10 +219,14 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
                 Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 arrived_Millhopper = true;
                 Counter.locationsVisited += 1;
+                sandcastle.stop();
+                inActivity = true;
                 startActivity(my_intent);
                 //checked_Millhopper = true;
-            } else { //been there before
+            } else if (Counter.checked_Millhopper){ //been there before
                 Intent my_intent = new Intent(getBaseContext(), Location5.class);
+                //sandcastle.stop();
+                inActivity = true;
                 startActivity(my_intent);
             }
 
@@ -212,12 +238,16 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
                 Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 arrived_Bat = true;
                 Counter.locationsVisited += 1;
+                sandcastle.stop();
+                inActivity = true;
                 startActivity(my_intent);
                 //checked_Bat = true;
-            } /*else { //been there before
+            } else if (Counter.checked_Bat) { //been there before
                 Intent my_intent = new Intent(getBaseContext(), Location6.class);
+                //sandcastle.stop();
+                inActivity = true;
                 startActivity(my_intent);
-            }*/
+            }
 
         } else if (Math.abs(-82.3069375 - location.getLongitude())<0.001 && Math.abs(29.5303567 - location.getLatitude())<0.001) {
 
@@ -227,10 +257,14 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
                 Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 arrived_Lake = true;
                 Counter.locationsVisited += 1;
+                sandcastle.stop();
+                inActivity = true;
                 startActivity(my_intent);
                 //checked_Lake = true;
-            } else { //been there before
+            } else if (Counter.checked_Lake) { //been there before
                 Intent my_intent = new Intent(getBaseContext(), Location7.class);
+                //sandcastle.stop();
+                inActivity = true;
                 startActivity(my_intent);
             }
 
@@ -238,18 +272,23 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
 
             // Location 8 : Ichetucknee Springs
 
-            if(!Counter.checked_Springs && !arrived_Springs){ //first time arriving
+            if (!Counter.checked_Springs && !arrived_Springs) { //first time arriving
                 Intent my_intent = new Intent(getBaseContext(), LocationActivity.class);
                 arrived_Springs = true;
                 Counter.locationsVisited += 1;
+                sandcastle.stop();
+                inActivity = true;
                 startActivity(my_intent);
                 //checked_Springs = true;
-            } else { //been there before
+                finish();
+            } else if (Counter.checked_Springs) { //been there before
                 Intent my_intent = new Intent(getBaseContext(), Location8.class);
+                //sandcastle.stop();
+                inActivity = true;
                 startActivity(my_intent);
             }
 
-        }
+        }}
 
     }
 
@@ -272,6 +311,7 @@ public class EntryActivity extends AppCompatActivity implements LocationListener
     public void onResume(){
         super.onResume();
 
+        sandcastle.start();
         //check if you checked off a location or won
         Check();
         Win();

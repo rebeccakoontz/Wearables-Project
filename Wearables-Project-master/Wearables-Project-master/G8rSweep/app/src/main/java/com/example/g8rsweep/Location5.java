@@ -14,12 +14,18 @@ public class Location5 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location5);
 
-        MediaPlayer sandcastle = MediaPlayer.create(Location5.this, R.raw.sandcastle);
-        sandcastle.start();
+        //MediaPlayer sandcastle = MediaPlayer.create(Location5.this, R.raw.sandcastle);
+        //sandcastle.start();
     }
 
     //public void onClickMainMenu(View view) {
     //    Intent my_intent = new Intent(getBaseContext(), EntryActivity.class);
     //    startActivity(my_intent);
     //}
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        EntryActivity.inActivity = false;
+    }
 }

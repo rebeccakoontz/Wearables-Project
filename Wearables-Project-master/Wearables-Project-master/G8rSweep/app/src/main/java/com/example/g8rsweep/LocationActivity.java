@@ -43,6 +43,8 @@ public class LocationActivity extends AppCompatActivity {
 
     int TIME_OUT = 1000;
 
+    MediaPlayer sandcastle;
+
     //the activity that pops up when you arrive at a location
 
     @Override
@@ -50,8 +52,8 @@ public class LocationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
 
-        //MediaPlayer sandcastle = MediaPlayer.create(LocationActivity.this, R.raw.sandcastle);
-        //sandcastle.start();
+        sandcastle = MediaPlayer.create(LocationActivity.this, R.raw.sandcastle);
+        sandcastle.start();
     }
 
     public void whenPlayClicked(View view){
@@ -59,6 +61,7 @@ public class LocationActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Intent i = new Intent(LocationActivity.this, MainActivity.class);
+                sandcastle.stop();
                 startActivity(i);
                 finish();
             }
@@ -67,7 +70,7 @@ public class LocationActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Counter.locationsVisited -= 1;
+        /*Counter.locationsVisited -= 1;
         EntryActivity.arrived_Harn = false;
         EntryActivity.arrived_Butterfly = false;
         EntryActivity.arrived_Paynes = false;
@@ -76,8 +79,11 @@ public class LocationActivity extends AppCompatActivity {
         EntryActivity.arrived_Bat = false;
         EntryActivity.arrived_Lake = false;
         EntryActivity.arrived_Springs = false;
+        EntryActivity.inActivity = false;
+        sandcastle.stop();
         Intent my_intent = new Intent(getBaseContext(), EntryActivity.class);
         startActivity(my_intent);
+        finish();*/
     }
 
 }
